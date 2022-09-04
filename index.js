@@ -1,20 +1,7 @@
-const express = require("express");
-
-const app = express()
+const service = require('./src/service');
 
 const PORT = 3002 || process.env.PORT
 
-app.use(express.json());
-
-app.get('/get', (req, res) => {
-    const data = req.query
-    res.send(console.log(data))
-})
-
-app.listen(PORT, e => {
-    if(!e) {
-        console.log(`Está rodando na porta ${PORT}`)
-    } else {
-        console.log(e);
-    }
+const listener = service.listen(PORT,  function () {
+        console.log("Node.js listening on port" + listener.address().PORT)
 })
