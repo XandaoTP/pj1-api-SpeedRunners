@@ -1,12 +1,7 @@
+const { gameList } = require('../controllers/games.controller')
+
 const gamesRoute = (app) => (
-    app.get('/gamelist', function (req, res){
-        res.json({
-            games: [{
-                id: "",
-    
-            }],
-        })
-    })
+    app.get('/gamelist', gameList )
 )
 
    module.exports = gamesRoute
