@@ -1,25 +1,9 @@
-const data = [
-    {
-        id: "1",
-        description: "1",
-        status: "ativo"
-
-    },
-    {
-        id: "2",
-        description: "2",
-        status: "inativo"
-
-    }
-]
-
+const gameRepository = require('../../infra/data/repositories/games.repository')
 
 module.exports = ({ status = undefined, }) => {
-
-    let resultFromDB = data ;
-    if(status) {
-        resultFromDB = data.filter(item => item.status == status )
-    }
-
+    const filter ={
+        status
+    } ;
+    const resultFromDB =  gameRepository.find({status})
     return resultFromDB;
 }

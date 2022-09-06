@@ -27,7 +27,7 @@ const showGame = (req, res) => {
             mensagem: "Game id não informado.",
         })
     }
-
+    const usecaseResult = gameListUsecase({status: query})
 
         res.json({
             id: 'sads',
